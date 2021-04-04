@@ -3,9 +3,11 @@ var app = express();
 
 console.log('Hello World');
 
-const router = express.Router();
-router.get('/', function(req, res) {
+app.use('/public', express.static(__dirname + '/public'));
+
+app.get('/', function(req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
-module.exports = router;
+
+module.exports = app;
