@@ -11,11 +11,10 @@ app.get('/', function(req, res) {
 
 app.get('/json', (req, res) => {
   res.json(
-    {
-      'message': 'Hello json'
-    }
+    process.env.MESSAGE_STYLE === 'uppercase' ? 
+      {'message': 'HELLO JSON'} :
+      {'message': 'Hello json'} 
   );
 });
-
 
 module.exports = app;
